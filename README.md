@@ -1,12 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-# AFSL-SCL-HNM
-Code and data splits for the LREC 2026 paper "Supervised Contrastive Fine-Tuning for Active Few-Shot Learning
-=======
-<h1 align=center style="margin:100"> [这里填你的论文最终标题，例如：Supervised Contrastive Learning with Hard Negative Mining for Active Few-Shot Learning] </h1>
-=======
 <h1 align=center style="margin:100"> Supervised Contrastive Fine-Tuning for Active Few-Shot Learning </h1>
->>>>>>> 252d78b (lrec2026)
 <p align=center> <i> Accepted at the 2026 International Conference on Language Resources and Evaluation (LREC 2026) </i> </p>
 
 ## Abstract
@@ -17,7 +9,7 @@ Active Few-Shot Learning (AFSL) is an effective paradigm for improving the perfo
 ## 📊 Standardized Benchmark Splits (LREC 2026 Resource Contribution)
 To ensure rigorous and fair comparisons in future Active Few-Shot Learning (AFSL) research, we eliminate the substantial variance caused by data selection by releasing our exact few-shot splits. 
 
-Please refer to the `lrec2026_benchmark_splits.zip` file in this repository. **Note: Please unzip this file to get the JSON file before running the experiments.** It contains the exact reproducible random splits (for 5 distinct random seeds) used in our experiments across all 5 datasets. Future researchers are highly encouraged to use these standardized indices to draw their initial unlabeled pools and test sets to establish a fair ground for comparison.
+Please download the `lrec2026_benchmark_splits.zip` file from the **[Releases](https://github.com/zzz-Sgr/AFSL-SCL-HNM/releases)** page of this repository. **Note: Please unzip this file to get the JSON file before running the experiments.** It contains the exact reproducible random splits (for 5 distinct random seeds) used in our experiments across all 5 datasets. Future researchers are highly encouraged to use these standardized indices to draw their initial unlabeled pools and test sets to establish a fair ground for comparison.
 
 ## Datasets
 Our experiments are conducted on the following datasets. Please download and place them in the `./data/` directory before running the code.
@@ -31,14 +23,4 @@ Our experiments are conducted on the following datasets. Please download and pla
 
 ```bash
 conda env create -f afl-env.yml
-<<<<<<< HEAD
 conda activate afl-env
-
-2. Modify the parameters in main.py or the first cell of afl.ipynb as needed. Ensure that your relative paths pointing to the ./data/ folder are correct.
-
-3. Run the experiments using Papermill via main.py:
-python main.py
->>>>>>> 0b051c8 (Initial commit: Add SCL-HNM implementation and compressed data splits for LREC 2026)
-=======
-conda activate afl-env
->>>>>>> 252d78b (lrec2026)
