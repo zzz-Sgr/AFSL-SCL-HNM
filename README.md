@@ -24,10 +24,14 @@ Our experiments are conducted on the following datasets. Please download and pla
 ```bash
 conda env create -f afl-env.yml
 conda activate afl-env
+```
 
 2.Modify the parameters in main.py or the first cell of afl.ipynb as needed. Ensure that your relative paths pointing to the ./data/ folder are correct.
 
 3.Run the experiments using Papermill via main.py:
+
+```bash
 python main.py
 ```
+
 
