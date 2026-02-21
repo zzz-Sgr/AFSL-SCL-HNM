@@ -28,5 +28,5 @@ conda activate afl-env
 2.Modify the parameters in main.py or the first cell of afl.ipynb as needed. Ensure that your relative paths pointing to the ./data/ folder are correct.
 
 3.Run the experiments using Papermill via main.py:
-```bash
 python main.py
+
