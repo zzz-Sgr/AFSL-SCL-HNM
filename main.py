@@ -15,61 +15,40 @@ Path("results/").mkdir(parents=True, exist_ok=True)
 
 notebook_name = "afl.ipynb"
     
-experiment_name = "SCL-HNM_AMZN-EN_Default"
+experiment_name = "SCL-HNM_MPQA-P_Default"
 
 papermill.execute_notebook(
     input_path = f'{notebook_name}',
     output_path = f'results/{experiment_name}_{notebook_name}',
 
     parameters = dict(
-        RUNTIME_TYPE = 'CONDA',          # Conda environment
+        RUNTIME_TYPE = 'CONDA',          
         EXPERIMENT_NAME = experiment_name,
-        DATASET_NAME = 'AMZN-EN',        # Dataset name
-        BASE_MODEL = 'FLAN-T5',          # Base model
-        MODEL_NAME = 'google/flan-t5-base', # HuggingFace Model path
+        DATASET_NAME = 'MPQA-P',
+        BASE_MODEL = 'FLAN-T5',          
+        MODEL_NAME = 'google/flan-t5-base', 
         AFL_METHOD = "Rep(En)-ClUn(En)", 
 
-        SAMPLING_ITERATIONS = 10,        # Iterations / epochs
-        NUMBER_OF_SAMPLES_PER_ITERATION = 10, # samples per epoch
+        SAMPLING_ITERATIONS = 10,        
+        NUMBER_OF_SAMPLES_PER_ITERATION = 10, 
    
-        REPEAT_SAMPLING = 5,             # Seeds / Number of experiments
+        REPEAT_SAMPLING = 5,             
 
-        STORE_RESULTS = ['eval_main_metric'], 
+        STORE_RESULTS = ['eval_polarity_accuracy', 'eval_polarity_weighted_f1'],
         RESET_MODEL_AFTER_EACH_ITERATION = True, 
         INITIAL_LEARNING_RATE = 1e-4,    
         LEARNING_RATE_DECAY = 1,
 
-        USE_CONTRASTIVE_LOSS = True,     # 对比学习总开关
-        CONTRASTIVE_LOSS_ALPHA = 0.1,   #  lambda
-        SIMILARITY_METRIC = 'cosine',    # 相似度度量: 'cosine' 或 'euclidean'
-        TEMPERATURE = 0.05,              # 温度系数 tau
+        USE_CONTRASTIVE_LOSS = True,     
+        CONTRASTIVE_LOSS_ALPHA = 0.1,   
+        SIMILARITY_METRIC = 'cosine',    
+        TEMPERATURE = 0.05,              
         
-        USE_HARD_NEGATIVE_MINING = True, # 硬样本挖掘开关
-        HARD_NEGATIVE_MINING_M = 5,      # 硬负样本数量 M
+        USE_HARD_NEGATIVE_MINING = True, 
+        HARD_NEGATIVE_MINING_M = 5,      
 
-        # # MPQA Type
-        # mpqa_t_train_link = './data/MPQA_dataset/mpqa_type_train.csv',
-        # mpqa_t_val_link   = './data/MPQA_dataset/mpqa_type_val.csv',
-        # mpqa_t_test_link  = './data/MPQA_dataset/mpqa_type_test.csv',
-
-        # MPQA Polarity
-        STORE_RESULTS = ['eval_polarity_accuracy', 'eval_polarity_weighted_f1'],
         mpqa_p_train_link = './data/MPQA_dataset/mpqa_polarity_train.csv',
         mpqa_p_val_link   = './data/MPQA_dataset/mpqa_polarity_val.csv',
         mpqa_p_test_link  = './data/MPQA_dataset/mpqa_polarity_test.csv',
-
-        # # MPQA Intensity
-        # mpqa_i_train_link = './data/MPQA_dataset/mpqa_intensity_train.csv',
-        # mpqa_i_val_link   = './data/MPQA_dataset/mpqa_intensity_val.csv',
-        # mpqa_i_test_link  = './data/MPQA_dataset/mpqa_intensity_test.csv',
-
-        # # AG News
-        # agnews_train_link = './data/AG_news_dataset/agnews_train.csv',
-        # agnews_test_link  = './data/AG_news_dataset/agnews_test.csv',
-
-        # # Amazon Reviews
-        # amzn_train_link = './data/Amazon_dataset/amazon_train.csv',
-        # amzn_val_link   = './data/Amazon_dataset/amazon_val.csv',
-        # amzn_test_link  = './data/Amazon_dataset/amazon_test.csv',
     )
 )
